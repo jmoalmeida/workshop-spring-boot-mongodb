@@ -40,12 +40,17 @@ public class PostService {
 		return  repo.save(newObj);
 	}
 	
+	public List<Post> findByTitle(String text){
+		return repo.findByTitleContainingIgnoreCase(text);
+	}
+	
 	private void updateData(Post newObj, Post obj) {
 		newObj.setDate(obj.getDate());
 		newObj.setTitle(obj.getTitle());
 		newObj.setBody(obj.getBody());
 		newObj.setAuthor(obj.getAuthor());
 	}
+	
 
 //	public Post fromDTO(PostDTO objDto) {
 //		return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
